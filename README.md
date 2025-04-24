@@ -19,6 +19,7 @@ Add this line to your application's Gemfile:
 
 ```ruby
 gem 'rails_jwt_auth_generators'
+```
 ```plaintext
 
 And then execute:
