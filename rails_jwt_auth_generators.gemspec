@@ -18,8 +18,8 @@ Gem::Specification.new do |spec|
   # spec.metadata["allowed_push_host"] = "https://rubygems.org"
 
   spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "https://github.com/Zeyad-Hassan-1/rails_jwt_auth_generators"
-  spec.metadata["changelog_uri"] = "https://github.com/Zeyad-Hassan-1/rails_jwt_auth_generators/blob/main/CHANGELOG.md"
+  spec.metadata["source_code_uri"] = spec.homepage + "/tree/main"
+  spec.metadata["changelog_uri"] = spec.homepage + "/blob/main/CHANGELOG.md"
 
   # Files to include in the gem
   gemspec = File.basename(__FILE__)
@@ -33,6 +33,6 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  # Add Rails as a dependency
-  spec.add_dependency "rails", ">= 6.0"
+  # Add Rails as a dependency with semantic versioning constraint
+  spec.add_dependency "rails", "~> 6.0"
 end
