@@ -14,25 +14,25 @@ Gem::Specification.new do |spec|
   spec.license       = "MIT"
   spec.required_ruby_version = ">= 3.0.0"
 
-  # Remove or comment out push host if not publishing to a private gem server
   # spec.metadata["allowed_push_host"] = "https://rubygems.org"
 
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = spec.homepage + "/tree/main"
   spec.metadata["changelog_uri"] = spec.homepage + "/blob/main/CHANGELOG.md"
 
-  # Files to include in the gem
-  gemspec = File.basename(__FILE__)
-  spec.files = Dir.chdir(__dir__) do
-    `git ls-files -z`.split("\x0").reject do |f|
-      (f == gemspec) || f.start_with?(*%w[bin/ test/ spec/ features/ .git .github Gemfile])
-    end
-  end
+  # Modified files section to avoid recursive inclusion
+  spec.files = Dir.glob(%w[
+    lib/**/*.rb
+    lib/**/*.tt
+    lib/**/*.erb
+    lib/generators/**/*
+    bin/*
+    [A-Z]*
+  ]).reject { |f| f.match(%r{^(test|spec|features)/}) }
 
   spec.bindir        = "exe"
   spec.executables   = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  # Add Rails as a dependency with semantic versioning constraint
-  spec.add_dependency "rails", "~> 6.0"
+  spec.add_dependency "rails", ">= 6.0", "< 9.0"
 end
