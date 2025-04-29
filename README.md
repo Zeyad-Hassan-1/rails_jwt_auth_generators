@@ -18,16 +18,19 @@ Add this line to your application's Gemfile:
 
 ```ruby
 gem 'rails_jwt_auth_generators'
+```
 ```plaintext
 
 And then execute:
+```
 
 ```bash
 bundle install
+```
 ```plaintext
 
 Or install it yourself as:
-
+```
 ```bash
 gem install rails_jwt_auth_generators
 ```
